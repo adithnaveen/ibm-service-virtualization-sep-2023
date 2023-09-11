@@ -82,6 +82,11 @@
 - sorting 
     1. comparable 
     2. comparator 
-```
-    
-```
+
+### ways to testing 
+    - write in the main method 
+    - look for some test framework 
+        - junit 
+            - 4 
+            - 5 
+        - testng 

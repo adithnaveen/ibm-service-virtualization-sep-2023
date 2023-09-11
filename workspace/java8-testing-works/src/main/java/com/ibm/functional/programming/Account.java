@@ -6,7 +6,9 @@ public class Account {
 	private String customerName; 
 	private String sex;
 	
-	public Account() {}
+	public Account() {
+		super();
+	}
 	public Account(int accountId, double balance, String customerName, String sex) {
 		super();
 		this.accountId = accountId;

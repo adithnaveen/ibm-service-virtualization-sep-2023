@@ -84,10 +84,6 @@ public class LambdaEx03 {
 
 		System.out.println("--- accounts in sex and balance ------ ");
 		list.forEach(System.out :: println);
-		
-		
-		
-
 	}
 	
 	private static class AccountPredicate {
