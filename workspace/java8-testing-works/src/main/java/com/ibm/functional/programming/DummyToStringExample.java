@@ -1,4 +1,4 @@
-package com.ibm.businesslogic;
+package com.ibm.functional.programming;
 
 
 class MyClass  {
