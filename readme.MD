@@ -46,3 +46,35 @@
 
 
 
+## Notes 
+
+- Rest Templage 
+
+```
+
+      return restTemplate.exchange("
+         http://yoursite.com/products/123", HttpMethod.GET, entity, String.class).getBody();
+   
+```
+
+- Java Programming Language 
+- functional programming 
+    - Ruby 
+    - R 
+    - Groovy 
+    - Kotlin 
+    - java 1.8 
+
+
+- functional interfaces - are those interfaces which shall have single function / method 
+
+```
+    interface Hello {
+        one();
+    }
+
+
+    interface Consumer {
+        void accept();
+    }
+```
