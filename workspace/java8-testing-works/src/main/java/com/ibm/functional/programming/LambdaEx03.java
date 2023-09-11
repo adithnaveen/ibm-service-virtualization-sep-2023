@@ -18,17 +18,21 @@ public class LambdaEx03 {
 		
 		
 		 
-		
+		System.out.println("--------Only Male----------");
+
 		// Show only Male Account Holders 
-		
-		
-		
 		List<Account> onlyMaleList = 
 					AccountPredicate.filterAccounts(list, AccountPredicate.onlyMale());
 		onlyMaleList.forEach(System.out :: println);
 		
 		// show people with balance more than 2500 
 
+		System.out.println("--------Balance More than 2500----------");
+		List<Account> accountMoreThan2500List 
+			= AccountPredicate.filterAccounts(list, AccountPredicate.checkOnBalance(2500));
+		accountMoreThan2500List.forEach(System.out :: println);
+		
+		
 		// Show only female Account Holders (Negate of Male) 
 		
 		// sort people base on name 
