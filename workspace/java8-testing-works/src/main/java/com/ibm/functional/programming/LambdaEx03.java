@@ -1,6 +1,7 @@
 package com.ibm.functional.programming;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -31,15 +32,62 @@ public class LambdaEx03 {
 		List<Account> accountMoreThan2500List 
 			= AccountPredicate.filterAccounts(list, AccountPredicate.checkOnBalance(2500));
 		accountMoreThan2500List.forEach(System.out :: println);
-		
-		
-		// Show only female Account Holders (Negate of Male) 
-		
-		// sort people base on name 
-		
+
 		// list people with Male and balance more than 2500 
 		
 		
+		System.out.println("----------- Male and balance more than 2500----------- ");
+		Predicate<Account> onlyMaleAndBalanceGt2500 
+			= AccountPredicate.checkOnBalance(2500).and(AccountPredicate.onlyMale()); 
+		
+		List<Account> onlyMaleAndBalanceGt2500List 
+			= AccountPredicate.filterAccounts(list, onlyMaleAndBalanceGt2500); 
+		
+		onlyMaleAndBalanceGt2500List.forEach(System.out :: println);
+		
+		System.out.println("--------Only Female----------");
+
+		// Show only female Account Holders (Negate of Male) 
+		List<Account> onlyFemaleList = 
+				AccountPredicate.filterAccounts(list, AccountPredicate.onlyMale().negate());
+		onlyFemaleList.forEach(System.out :: println);
+		
+		
+		// sort people base on name 
+		
+		
+		
+		Comparator<Account> sortOnCustomerName = new Comparator<Account>() {
+			@Override
+			public int compare(Account o1, Account o2) {
+				return o1.getCustomerName().compareTo(o2.getCustomerName()); 
+			}
+		};
+		
+		list.sort(sortOnCustomerName);
+		
+		System.out.println("--- accounts in sorted order of name------ ");
+		list.forEach(System.out :: println);
+
+		list.sort(sortOnCustomerName.reversed()); 
+
+		System.out.println("--- accounts in sorted order of name (desc)------ ");
+		list.forEach(System.out :: println);
+		
+		
+		// order by sex then by balance 
+		Comparator<Account> sexAndBalance = Comparator.comparing(Account :: getSex).
+			thenComparing(Comparator.comparing(Account :: getBalance)); 
+		
+
+		list.sort(sexAndBalance); 
+
+		System.out.println("--- accounts in sex and balance ------ ");
+		list.forEach(System.out :: println);
+		
+		
+		
+
 	}
 	
 	private static class AccountPredicate {

@@ -78,3 +78,10 @@
         void accept();
     }
 ```
+
+- sorting 
+    1. comparable 
+    2. comparator 
+```
+    
+```
