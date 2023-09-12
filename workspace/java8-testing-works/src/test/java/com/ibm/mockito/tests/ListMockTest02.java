@@ -1,11 +1,14 @@
 package com.ibm.mockito.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ListMockTest02 {
@@ -28,4 +31,40 @@ class ListMockTest02 {
 		 assertEquals(3, listMock.size());
 	}
 	
+	@Test
+	@DisplayName("to return 2 names Asha (1), Nidhi(2) from the list and assert")
+	void mockListValues_validCase() {
+		 List listMock = mock(List.class);
+		 when(listMock.get(1)).thenReturn("Asha").thenReturn("Nidhi"); 
+		 
+		 assertEquals("Asha", listMock.get(1));
+		 assertEquals("Nidhi", listMock.get(1));
+	}
+	
+	@Test
+	@DisplayName("to return 2 names Asha , Nidhi from the list and assert any int ")
+	void mockListValues_validCase_anyInt() {
+		 List listMock = mock(List.class);
+		 when(listMock.get(anyInt())).thenReturn("Asha").thenReturn("Nidhi"); 
+		 
+		 assertEquals("Asha", listMock.get(3));
+		 assertEquals("Nidhi", listMock.get(5));
+	}
+	
+	@Test
+	void mockListToThrowAnExceptionWhenSomeSizeGiven_ValidCase() {
+		List listMock = mock(List.class);
+		when(listMock.get(anyInt())).thenThrow(new RuntimeException("Sorry Testing To Throw Exception For Mock")); 
+		
+		assertThrows(RuntimeException.class, () -> listMock.get(1));
+	}
 }
+
+
+
+
+
+
+
+
+
