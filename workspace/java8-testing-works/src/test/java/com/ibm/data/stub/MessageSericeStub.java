@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.ibm.data.contracts.IMessageService;
 
-public class MessageSericeStub implements IMessageService{
+public class MessageSericeStub implements 
+IMessageService{
 
 	// imagine this is coming from the DB 
 	@Override
