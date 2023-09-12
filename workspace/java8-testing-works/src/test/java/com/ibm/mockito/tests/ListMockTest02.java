@@ -58,6 +58,24 @@ class ListMockTest02 {
 		
 		assertThrows(RuntimeException.class, () -> listMock.get(1));
 	}
+	
+	@Test
+	void mockListToTestSublist_validCase() {
+		List listMock = mock(List.class);
+		
+		when(listMock.subList(4, 4)).thenReturn(List.of("some values"));
+		assertEquals("[some values]", listMock.subList(4, 4));
+	}
+
+	// this method will not work because of anyInt 
+	@Test
+	void mockListToTestSublistAnyInt_validCase() {
+		List listMock = mock(List.class);
+		
+		// passing anyInt() here is an illegal argument, pass only finite value 
+		when(listMock.subList(anyInt(), anyInt())).thenReturn(List.of("some values"));
+		assertEquals("[some values]", listMock.subList(4, 4));
+	}
 }
 
 
