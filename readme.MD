@@ -204,3 +204,10 @@
     }
 
 ```
+
+
+- case for group testing 
+    - insert record 
+    - get the record pass 
+    - delete the record 
+    - get the record failed case

@@ -6,15 +6,22 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import com.ibm.businesslogic.ISampleTestingCode;
 import com.ibm.businesslogic.NameInvalidException;
@@ -100,14 +107,63 @@ class SampleTestCodeTest02 {
 	
 	
 	
+	// nested test case 
+	
+	@Nested
+	class NestedTestCases{
+		 
+		@Test
+		void checkNumberOfNamesInTheListMoreThan0_ValidCase() {
+			assertTrue(stc.getName().size() > 0);
+		}
+		 
+		@Test
+		void checkNameGivenIsValid_ValidCase() {
+			String name = "Amita";
+			assertTrue(stc.checkName(name));
+		}
+	}
 	
 	
+	// parameterization 
+	
+ 
+	@Disabled
+	@DisplayName("To check multiple name for valid case to pass hardcoded values for value source")
+	@ParameterizedTest
+	@ValueSource(strings = {"Sonali", "Souvik", "Kasaiah", "Pranthi"})
+	void checkForMultipleNameValidCase(String name) {
+		assertTrue(stc.checkName(name), "invalid name");
+	}
 	
 	
+	// parameterization - method source 
+	
+	@DisplayName("To check multiple name for valid case to pass method source values for value source")
+	@ParameterizedTest
+	@MethodSource("getNamesToCheck")
+	void checkForMultipleNameValidCase_methodSource(String name) {
+		assertTrue(stc.checkName(name), "invalid name");
+	}
+	
+	static Stream<String> getNamesToCheck() {
+		// connect to external source like .xlsx, db, etc to get the data 
+		return Stream.of("Sonali", "Souvik", "Kasaiah", "Pranthi", "Asha Surayanarayana");
+	}
 	
 	
+	// parameterization - csv source 
 	
 	
+	@DisplayName("To check multiple name for valid case to pass csv source values for value source")
+	@ParameterizedTest
+	@CsvFileSource(files = {"src/test/resources/names.csv"}, 
+					lineSeparator = "|", 
+					numLinesToSkip = 1
+					)
+	void checkForMultipleNameValidCase_csvSource(String name) {
+		assertTrue(stc.checkName(name) , "invalid name : " + name);
+	}
 	
 	
 	
