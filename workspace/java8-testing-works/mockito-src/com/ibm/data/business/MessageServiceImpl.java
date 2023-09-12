@@ -8,7 +8,7 @@ import com.ibm.data.contracts.IMessageService;
 public class MessageServiceImpl {
 	private IMessageService ms; 
 	
-	public MessageServiceImpl() {}
+	 
 	public MessageServiceImpl(IMessageService ms) {
 		this.ms = ms; 
 	}

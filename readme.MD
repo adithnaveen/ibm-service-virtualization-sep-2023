@@ -227,7 +227,6 @@
         - assertEquals(expected, actual)
         - assertEquals(1234, given by mockito) - mockito will give yout what you give it to it 
 
-
 ```
     List mockedList = mock(List.class);
 

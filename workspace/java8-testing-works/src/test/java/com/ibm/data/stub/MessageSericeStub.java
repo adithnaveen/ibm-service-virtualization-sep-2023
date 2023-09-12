@@ -6,6 +6,7 @@ import com.ibm.data.contracts.IMessageService;
 
 public class MessageSericeStub implements IMessageService{
 
+	// imagine this is coming from the DB 
 	@Override
 	public List<String> getMessages(String user) {
 		return List.of(
