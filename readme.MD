@@ -211,3 +211,35 @@
     - get the record pass 
     - delete the record 
     - get the record failed case
+
+
+- internaces are abstract 
+- the classes are concrete 
+
+### mockito 
+
+```
+
+    Stock stock = of infosys -> to external API (putting effort to get the data is not a good idea )
+        - input -> infosys -> some body to to get me the data (mocking framework 1234)
+        - output -> 1234 
+
+        - assertEquals(expected, actual)
+        - assertEquals(1234, given by mockito) - mockito will give yout what you give it to it 
+
+
+```
+    List mockedList = mock(List.class);
+
+    mockedList.add("one");
+
+    assertEquals(1, mockedList.size());
+```
+
+
+- need of hamcrest 
+```
+    assertEquals("hi", "hi"); 
+
+    assertThat(list, actualList); 
+```

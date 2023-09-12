@@ -22,5 +22,7 @@ public class DummyToStringExample {
 		MyClass m = new MyClass(123); 
 		
 		System.out.println(m);
+		
+	 
 	}
 }
