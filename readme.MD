@@ -242,3 +242,8 @@
 
     assertThat(list, actualList); 
 ```
+
+- BDD 
+    - Given 
+    - When 
+    - Then 

@@ -17,5 +17,10 @@ public class MessageSericeStub implements IMessageService{
 				"now learning mockito from vani"
 				);
 	}
+
+	@Override
+	public void deleteMessage(Integer messageId, String message) {
+		// TODO 
+	}
 	
 }

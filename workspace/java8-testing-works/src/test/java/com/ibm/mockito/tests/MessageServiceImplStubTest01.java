@@ -1,6 +1,8 @@
 package com.ibm.mockito.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.List;
 
@@ -20,7 +22,41 @@ class MessageServiceImplStubTest01 {
 		
 		List<String> filteredMessages = msi.getMessagesFromUser("vani");
 		
+		filteredMessages.forEach(System.out :: println);
 		assertEquals(3, filteredMessages.size());  
 	}
 
+	
+	@Test
+	void messageServiceImplTest_withMock() {
+		IMessageService messageServiceMock = mock(IMessageService.class); 
+		
+		List<String> list = List.of(
+				"hello good morning all from vani", 
+				"i live in delhi from vani",
+				"how are you doing from asha",
+				"its getting sunny in bengaluru by naveen",
+				"now learning mockito from vani"
+				);
+		
+		when(messageServiceMock.getMessages("vani")).thenReturn(list); 
+		
+		MessageServiceImpl msi = new MessageServiceImpl(messageServiceMock);
+		List<String> filteredMessages = msi.getMessagesFromUser("vani"); 
+		assertEquals(3, filteredMessages.size()); 
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
