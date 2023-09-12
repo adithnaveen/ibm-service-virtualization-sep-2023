@@ -6,6 +6,6 @@ import java.util.List;
 public interface ISampleTestingCode {
 	public String sayHello(String name); 
 	public List<String> getName(); 
-	public boolean checkName(String name); 
+	public boolean checkName(String name) throws NameInvalidException; 
 	public String delayedName(String name); 
 }

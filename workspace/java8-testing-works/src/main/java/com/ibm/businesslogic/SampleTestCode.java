@@ -16,7 +16,7 @@ public class SampleTestCode implements ISampleTestingCode {
 	}
 
 	@Override
-	public boolean checkName(String name) {
+	public boolean checkName(String name) throws NameInvalidException {
 		if(name.length()>4) {
 			return true; 
 		} 

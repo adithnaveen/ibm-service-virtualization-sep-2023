@@ -4,6 +4,5 @@
 
 ### SOLID Design pattern (github) - https://github.com/adithnaveen/SOLID
 
-### 
 
 
