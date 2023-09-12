@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.ibm.businesslogic.ISampleTestingCode;
 import com.ibm.businesslogic.SampleTestCode;
 
-class SampleTestCodeTest {
+class SampleTestCodeTest01 {
 
 	@BeforeAll
 	static void initiatlize() {

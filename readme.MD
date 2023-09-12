@@ -90,3 +90,105 @@
             - 4 
             - 5 
         - testng 
+
+
+# Day2 
+
+
+## working with contracts 
+
+```
+    interface IGetConnection {
+        public Connection getConnection(...); 
+    }
+
+    // delhi 
+    class MysqlConnection implements IGetConnection {
+        public Connection getConnection(...) {
+            // BL 
+        }
+    }
+
+    // blr 
+    class PostGressConnection implements IGetConnection  {
+        public Connection getConnection(...){
+            // BL 
+        }
+    }
+
+       // hyd 
+        class MongoDbConnection implements IGetConnection{
+        public Connection getConnection(...){
+            // BL 
+        }
+    }
+
+    IGetConnection connection = new MysqlConnection(); 
+    myc.connection(); 
+
+   connection = new PostGressConnection(); 
+    psc.getMyConnection(); 
+
+   connection= new MongoDbConnection(); 
+    mdc.getConnection(); 
+
+
+
+    List<String> list = new ArrayList();
+    ... 
+    list = new Vector();
+```
+
+
+-- working with polymorphism 
+
+
+```
+------------ contract -----------
+    interface Shape {
+        public void area(); 
+    }
+
+    ------------- concrete class --------------
+    class Circle implements Shape{
+        public void area() {
+            ...
+        }
+
+    }
+    class Square implements Shape{
+        public void area() {
+
+        }
+    }
+    class Rectangle implements Shape {
+        public void area() {
+                .....
+        }
+    }
+
+    class Trapesiam implents Shape {
+        public void area() {
+                .....
+        }
+    }
+
+--------------- BL -------------- 
+    class CalculateArea() {
+        public void calculateAreaOfShape(Shape s) {
+            s.area()
+        }
+    }
+--------client / impl / app --------
+
+    CalculateArea ca = new CalculateArea(); 
+
+    Shape c = new Circle(); 
+    ca.calcuateAreaOfShape(c); 
+
+    c = new Square(); 
+    ca.calcuateAreaOfShape(c); 
+
+    c = new rectangle(); 
+    ca.calcuateAreaOfShape(c); 
+```

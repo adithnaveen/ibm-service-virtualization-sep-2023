@@ -12,7 +12,6 @@ public class SampleTestCode implements ISampleTestingCode {
 
 	@Override
 	public List<String> getName() {
-
 		return List.of("Asha", "Amita", "Ashwini", "Nidhi"); 
 	}
 
