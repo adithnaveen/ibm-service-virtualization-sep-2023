@@ -18,7 +18,6 @@ public class EmailService {
     }
 
     public ServiceStatus checkServiceStatus() {
-  
       return 
         platform.getServiceStatus().equals("OK") ? ServiceStatus.UP : ServiceStatus.DOWN; 
         
