@@ -16,9 +16,7 @@ class ListMockTest02 {
 	@Test
 	void mockListSize_validCase() {
 		 List listMock = mock(List.class);
-		 
 		 when(listMock.size()).thenReturn(2);  
-		 
 		 assertEquals(2, listMock.size());
 	}
 
@@ -61,7 +59,8 @@ class ListMockTest02 {
 	
 	@Test
 	void mockListToTestSublist_validCase() {
-		List listMock = mock(List.class);
+		// if you have the mock object marked as final then it is called as Nice Mock 
+		final List listMock = mock(List.class);
 		
 		when(listMock.subList(4, 4)).thenReturn(List.of("some values"));
 		assertEquals("[some values]", listMock.subList(4, 4));

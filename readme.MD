@@ -241,9 +241,30 @@
     assertEquals("hi", "hi"); 
 
     assertThat(list, actualList); 
-```
+
 
 - BDD 
     - Given 
     - When 
     - Then 
+
+<br>
+ 
+
+
+# Day3 
+
+
+
+### Mock and use it 
+### BDD 
+    - Given - Pre condition 
+    - When - actual 
+    - Then - post condition 
+
+### tools who use BDD 
+    - Mockito 
+    - Rest Assured 
+    - Cucumber 
+    - Tosca 
+    - SpringBoot - Test 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.ibm.data.contracts.IMessageService;
 
+// SUT - system under test 
 public class MessageServiceImpl {
 	private IMessageService ms; 
 	
