@@ -268,3 +268,14 @@
     - Cucumber 
     - Tosca 
     - SpringBoot - Test 
+
+### mockito spy
+    - spy will work on real objects than contracts(Imaginary objects)
+    - spy will not work on List rather works on Vector/ arraylist
+    - spy will work for real implementataion /concreted classes 
+    - spy with list / set + messageService 
+    - mock will hold the reference v/s spy will hold the instance of the class 
+
+```
+    AnyClass cls = new AnyClass(); -> spy works here
+```
