@@ -279,3 +279,109 @@
 ```
     AnyClass cls = new AnyClass(); -> spy works here
 ```
+##  methods which are tested 
+    - Employee insertEmployee(Employee employee) {...}
+    - boolean insertEmployee(Employee employee) {...}
+    - Employee getEmployee(int empId) {...}
+    - Employee UpdateEmployee(int empId, Employee employee) {...}
+    - void deleteEmployee(int empId); (they can only be verified)
+        - for delete + get 
+## capturing values of complex object - Captor (some live case)
+    ```
+        class Employee {
+            private int empId; 
+            private Name name; 
+            private double income 
+            private Address address; 
+        }
+
+        class Name {
+            private String firstName; 
+            private String lastName; 
+        }
+        class Address {
+            private String street; 
+            private String city; 
+            private int pin;     
+        }
+
+        ---- 
+
+        class Email {
+            private String to; 
+            private String body; 
+            ... 
+        }
+
+        assertEquals("vani@gmail.com", actualObject.getTo()); 
+        assertEquals("some body ", actualObject.getBody()); 
+
+        ArgumentCaptor <Email> emailCaptor ; 
+
+        .....
+
+        mocking journey goes here 
+        verify(platform).deliver(emailCaptor); 
+
+        Email validateEmail = emailCaptor.getValue();
+        assertEquals(validateEmail.getTo(), "vani@gmail.com"); 
+
+    ```
+
+-- working with java beans 
+    ```
+    // make this class a bean class 
+    // make variables private 
+    // create constructor/s
+    // to access create getters and setters 
+        class Email {
+            private String to; 
+            private String subject; 
+            private String content; 
+
+            public Email() {} - default constructor 
+            public Email(String myto, String subject, String content ) {
+                // parametric construction 
+                to = myto; 
+            }
+
+            public String getTo() {
+                return this.to;
+            }
+
+            public String getSubject() {
+                return this.subject; 
+            }
+
+            public void setTo(String to )  {
+                this.to = to; 
+            }
+        }
+
+
+        class ImplEmail1 {
+            public static void main(String args[]) {
+                Email email = new Email(); 
+                email.to = "d" ; 
+                email.subject = "testing"; 
+                email.content = "Some content"; 
+
+            }
+        }
+
+        class ImplEmail2 {
+            public static void main(String args[]) {
+                 Email email = new Email(); 
+                email.to = "c" ; 
+                email.subject = "testing1"; 
+                email.content = "Some content1"; 
+            }
+        }
+
+    ```
+## working on restful application + mockito 
+    - setup springboot application 
+    - perform CRUD operation 
+    - test the code with spring context 
+    - test the code with spring context  + mockito 
+    - test the code with mockito 

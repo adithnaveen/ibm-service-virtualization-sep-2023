@@ -7,12 +7,21 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.exceptions.base.MockitoException;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.ibm.data.business.MessageServiceImpl;
 import com.ibm.data.contracts.IMessageService;
 
+
+// junit 4 
+//@RunWith(MockitoJunitRunner.class)
+
+// junit 5 
+@ExtendWith(MockitoExtension.class)
 class MessageServiceImplMockInjectMocks06 {
 
 	@Mock
