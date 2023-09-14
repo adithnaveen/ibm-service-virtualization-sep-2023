@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.mockitoworks.bean.Employee;
@@ -22,12 +25,15 @@ public class EmployeeController {
 		return service.getEmployees(); 
 	}
 	
-	public Employee getEmployee(int empId) {
+	
+	@GetMapping("/employees/{empId}")
+	public Employee getEmployee( @PathVariable int empId) {
 		return service.getEmployee(empId); 
 		
 	}
 	
-	public Employee saveEmployee(Employee employee) {
+	@PostMapping("/employee")
+	public Employee saveEmployee( @RequestBody Employee employee) {
 		return service.saveEmployee(employee); 
 	}
 }
