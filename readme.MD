@@ -425,3 +425,250 @@
         }
     }
 ```
+
+
+- working with wire mock 
+```
+    -- to start wire mock server 
+    $ java -jar wiremock-jre8-standalone-2.35.0.jar --port 8081 
+```
+
+- you can access server 
+    - .http 
+    - postman 
+    - java program 
+    - or any programming languages 
+- wire mock will take json and give you json / text / xml 
+
+
+- simple request 
+- http://localhost:8081/some/thing when i make GET - testing 
+
+- http://localhost:8081/__admin/mappings - POST 
+
+
+```
+{
+  "request": {
+    "method": "GET",   
+    "url": "/ibm/hello-world-text"
+  },
+
+  "response": {
+    "status": 200,
+    "body": "Hello, world!",
+    "headers": {
+        "Content-Type": "text/plain"
+    }
+  }
+}
+
+-- 
+
+
+{
+    "id": "380ff988-bff7-4187-bd0d-8a618bfbd0cd",
+    "request": {
+        "url": "/ibm/hello-world-text",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "body": "Hello, world!",
+        "headers": {
+            "Content-Type": "text/plain"
+        }
+    },
+    "uuid": "380ff988-bff7-4187-bd0d-8a618bfbd0cd"
+}
+```
+
+
+- making request for json object 
+```
+{
+  "request": {
+    "method": "GET",   
+    "url": "/ibm/hello-world-json"
+  },
+
+  "response": {
+    "status": 200,
+    "body": "{"empId" : 101, "empName":"Harry", }",
+    "headers": {
+        "Content-Type": "application/json"
+    }
+  }
+}
+```
+- verify link - http://localhost:8081/ibm/hello-world-json
+
+
+```
+    - query parameter 
+        http://localhost:8081/__admin/mappings/myuri?uuid=<uuid>&_page=2&order=asc
+
+        GET /posts/1/comments/_start/20/_limit/10
+        https://github.com/adithnaveen/ibm-service-virtualization-sep-2023
+        https://github.com/adithnaveen/ibm-service-virtualization-sep-2023/tree/main/workspace/java8-testing-works/mockito-src/com/ibm/data
+```
+
+
+
+- GET - Get All  - http://localhost:8081/__admin/mappings
+- GET {ID} - Get By Id  - http://localhost:8081/__admin/mappings/<UUID>
+- POST - Create - http://localhost:8081/__admin/mappings
+- PUT - Update  http://localhost:8081/__admin/mappings/<UUID> - body with updated value 
+- DELETE - Delete - http://localhost:8081/__admin/mappings/<UUID>
+
+
+- pattern matching 
+```
+{
+    "request": {
+        "method": "ANY",
+        "urlPattern": ".*"
+    },
+    "response": {
+        "status": 404,
+        "jsonBody": { "status": "Error", "message": "Endpoint not found" },
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
+```
+
+
+// http://localhost:8081/emp/<anyvalue>
+``` 
+{
+    "request": {
+        "priority":10, 
+        "method": "GET",
+        "urlPattern": "/emp/.*"
+    },
+    "response": {
+        "status": 200,
+        "jsonBody": "{'empId' : 101, 'empName':'Harry', 'city':'bengaluru'}",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
+ 
+```
+
+
+- get employee 
+```
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/emp/1"
+    },
+    "response": {
+        "status": 200,
+        "jsonBody": {'empId' : 1, 'empName':'Harry', 'city':'bengaluru'},
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
+
+```
+
+```
+    - variable arguments in java 
+    class Delete {
+        public void doSomeWork(String arg1, String arg2, String ... args) { // correct 
+
+        }
+
+        doSomeWork("hi", "bye"); // still work 
+        doSomeWork("hi", "bye", "cya", "bye bye"); // still work 
+    }
+
+
+     class Delete {
+        public void doSomeWork( String ... args, String arg1, String arg2,) { // not correct 
+
+        }
+
+        doSomeWork("hi", "bye"); // still work 
+        doSomeWork("hi", "bye", "cya", "bye bye"); // still work 
+    }
+```
+
+
+
+- for 404 least priority 
+
+```
+{
+    "priority": 50,
+    "request": {
+        "method": "ANY",
+        "urlPattern": ".*"
+    },
+    "response": {
+        "status": 404,
+        "jsonBody": { "status": "Error", "message": "Endpoint not found" },
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
+```
+
+
+1. creating simple request - text 
+2. creating simple request - json 
+3. Pattern matching 
+4. prioirity 
+5. CRUD with Mapping 
+6. Save 
+7. proxyBaseUrl
+```
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/courses/.*"
+    },
+    "response": {
+        "proxyBaseUrl": "https://probits.in"
+    }
+}
+```
+8. working with bodyFileName
+
+    ```
+    {
+    "request": {
+        "method": "GET",
+        "url": "/employee/1234"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "../__files/employee.json"
+    }
+}
+
+--
+
+
+
+ {
+    "request": {
+        "method": "GET",
+        "url": "/employees"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "../__files/employees.json"
+    }
+}
+    ```
+
+pratyu.176@gmail.com
+

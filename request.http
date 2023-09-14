@@ -1,0 +1,4 @@
+GET http://localhost:8081/courses/machine-learning-with-python/ HTTP/1.1
+
+
+

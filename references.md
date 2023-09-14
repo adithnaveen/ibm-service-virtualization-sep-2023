@@ -9,6 +9,11 @@
 ### wire mock server - https://repo1.maven.org/maven2/org/wiremock/wiremock-standalone/3.0.4/wiremock-standalone-3.0.4.jar
 
 
+### wiremock api - https://wiremock.org/docs/standalone/admin-api-reference/
+
+
+
+
 
 
 

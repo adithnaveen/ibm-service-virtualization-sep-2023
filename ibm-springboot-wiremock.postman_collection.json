@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "0d5adf7e-93f2-4cd9-8618-ff088a997368",
+		"name": "ibm-springboot-wiremock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "144951"
+	},
+	"item": [
+		{
+			"name": "group-of-tests",
+			"item": [
+				{
+					"name": "get-all-mapings",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get-by-uuid",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "spring-boot-works",
+			"item": [
+				{
+					"name": "get-employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save-employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"empName\" :\"Vani\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-employee",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "01-create-simple-request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"method\": \"GET\",\n        \"url\": \"/ibm/hello-world-text\"\n    },\n    \"response\": {\n        \"status\": 200,\n        \"body\": \"Hello, world!\",\n        \"headers\": {\n            \"Content-Type\": \"text/plain\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "01-verify-simple-request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ibm/hello-world-text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ibm",
+						"hello-world-text"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02-create-json-request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"method\": \"GET\",\n        \"url\": \"/ibm/hello-world-json\"\n    },\n    \"response\": {\n        \"status\": 200,\n        \"body\": \"{'empId' : 101, 'empName':'Harry'}\",\n        \"headers\": {\n            \"Content-Type\": \"application/json\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02-verify-simple-json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ibm/hello-world-json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ibm",
+						"hello-world-json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03-update-json-request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"method\": \"GET\",\n        \"url\": \"/ibm/hello-world-json\"\n    },\n    \"response\": {\n        \"status\": 200,\n        \"body\": \"{'empId' : 101, 'empName':'Harry', 'city':'virginia'}\",\n        \"headers\": {\n            \"Content-Type\": \"application/json\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings/06e01c40-df8f-43d8-9fa9-0687d7b2b4ae",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings",
+						"06e01c40-df8f-43d8-9fa9-0687d7b2b4ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04-delete-mapping",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings/380ff988-bff7-4187-bd0d-8a618bfbd0cd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings",
+						"380ff988-bff7-4187-bd0d-8a618bfbd0cd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05-save-mappings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06-pattern-mathcing-emp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"method\": \"GET\",\n        \"urlPattern\": \"/emp/.*\"\n    },\n    \"response\": {\n        \"status\": 200,\n        \"jsonBody\": {\"empId\" : 101, \"empName\":\"Harry\", 'city':'bengaluru'\n        },\n        \"headers\": {\n            \"Content-Type\": \"application/json\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06-verify-pattern-matching-emp",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "07-proxy-base-url",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"method\": \"GET\",\n        \"urlPattern\": \"/courses/.*\"\n    },\n    \"response\": {\n        \"proxyBaseUrl\": \"https://probits.in\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07-verify-proxy-base-url-stuck-huge-data",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "08-body-file-name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"method\": \"GET\",\n        \"url\": \"/employee/1234\"\n    },\n    \"response\": {\n        \"status\": 200,\n        \"bodyFileName\": \"../__files/employee.json\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/__admin/mappings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08-verify-body-file-name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "09-verify-recorder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/todos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"todos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
