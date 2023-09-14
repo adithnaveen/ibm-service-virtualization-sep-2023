@@ -385,3 +385,43 @@
     - test the code with spring context 
     - test the code with spring context  + mockito 
     - test the code with mockito 
+
+
+
+# day4 
+
+
+```
+
+- json 
+    {
+        "empId":101, 
+        "empName":"Naveen"
+    }
+    -- jackson (springboot which is default) / gson 
+- class 
+    class Employee {
+        int empId; 
+        String empName; 
+    }
+
+```
+
+- service virtualization 
+    - wiremock 
+    - tosca 
+    - mulesoft 
+    ... 
+
+```
+    hey wireMock i'll give you 101 give me  
+    {
+        "empId":101, 
+        "empName":"Naveen", 
+        "leaves" :{
+            available: 12, 
+            applied:2
+            remainding:10
+        }
+    }
+```
