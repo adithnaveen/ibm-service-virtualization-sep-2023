@@ -1,5 +1,6 @@
 package com.ibm.mockitoworks.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class EmployeeDAO implements IEmployeeRepo {
 
 	@Override
 	public List<Employee> getEmployees() {
-		return (List<Employee>) map.values();
+		return new ArrayList<>(map.values()); 
 	}
 
 	@Override
