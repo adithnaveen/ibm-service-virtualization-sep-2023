@@ -21,4 +21,13 @@ public class EmployeeController {
 	public List<Employee> getEmployees() {
 		return service.getEmployees(); 
 	}
+	
+	public Employee getEmployee(int empId) {
+		return service.getEmployee(empId); 
+		
+	}
+	
+	public Employee saveEmployee(Employee employee) {
+		return service.saveEmployee(employee); 
+	}
 }

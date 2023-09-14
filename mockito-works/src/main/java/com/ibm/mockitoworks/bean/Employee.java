@@ -24,9 +24,8 @@ public class Employee {
 	public Employee() {
 	}
 	
-	public Employee(int empId, String empName) {
+	public Employee(String empName) {
 		super();
-		this.empId = empId;
 		this.empName = empName;
 	}
 	@Override

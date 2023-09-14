@@ -17,4 +17,12 @@ public class EmployeeService {
 	public List<Employee> getEmployees() {
 		return repo.getEmployees(); 
 	}
+	
+	public Employee getEmployee(int empId) {
+		return repo.getEmployee(empId); 
+	}
+	public Employee saveEmployee(Employee employee) {
+		return repo.saveEmployee(employee); 
+	}
 }
+
