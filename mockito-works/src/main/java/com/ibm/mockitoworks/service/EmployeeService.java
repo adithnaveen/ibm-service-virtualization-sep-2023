@@ -19,6 +19,9 @@ public class EmployeeService {
 	}
 	
 	public Employee getEmployee(int empId) {
+		if(empId<0) {
+			throw new RuntimeException("sorry invalid employee id "); 
+		}
 		return repo.getEmployee(empId); 
 	}
 	public Employee saveEmployee(Employee employee) {
